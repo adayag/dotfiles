@@ -1,2 +1,2 @@
-alias bdeals='$Home/Projects'
+alias bdeals='cd ~/Projects'
 alias gst='git status'
