@@ -1,2 +1,3 @@
 alias bdeals='cd ~/Projects'
 alias gst='git status'
+alias a='./bin/app'
