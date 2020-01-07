@@ -1,3 +1,9 @@
 alias bdeals='cd ~/Projects'
-alias gst='git status'
+
+# docker related
 alias a='./bin/app'
+
+# git related
+alias gco='git checkout'
+alias gst='git status'
+alias gap='git add -p'
