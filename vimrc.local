@@ -1,6 +1,9 @@
 """""""""""""
 " GENERAL
 """""""""""""
+
+set hidden
+
 "Set tab as spaces
 set expandtab sw=2 ts=2
 
@@ -54,6 +57,9 @@ set nolist
 if (has("termguicolors"))
  set termguicolors
 endif
+
+set guifont=Fira\ Code:h16
+set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 
 " Set colorscheme
 syntax enable
