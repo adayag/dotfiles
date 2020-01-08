@@ -70,7 +70,7 @@ git_info() {
 # Change the prompt character color if the last command had a nonzero exit code
 PS1='
 $(ssh_info)%{$fg_bold[cyan]%}%~%u $(git_info)
-%{$fg_bold[green]%}[$(date +%k:%M:%S)]%{$reset_color%} %{$fg_bold[red]%}Do Better.%{$reset_color%} %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} 🐼🍕 '
+%{$fg_bold[green]%}[$(date +%k:%M:%S)]%{$reset_color%} %{$fg_bold[red]%}Do Better. 🐼🍕%{$reset_color%}%(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#. >=>)%{$reset_color%} '
 
 # old prompt
 # PROMPT='%{$fg_bold[red]%}%n%{$reset_color%}:%{$fg_bold[cyan]%}%~%{$reset_color%}$(git_prompt_info "(%s)")'
