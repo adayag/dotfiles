@@ -1,9 +1,16 @@
+set expandtab sw=2 ts=2
+set number
+set novisualbell
+
+" Set syntax on specific files
+autocmd BufNewFile,BufRead *.ejs set syntax=jst
+
 " Make `jj` and `jk` throw you into normal mode
 inoremap jj <esc>
 inoremap jk <esc>
 
 " Disable cursorline on nerdtree
-:autocmd Filetype nerdtree setlocal nocursorline
+autocmd Filetype nerdtree setlocal nocursorline
 
 "****** Reselect visual block after indent
 vnoremap < <gv
@@ -15,6 +22,12 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 endif
 
+" Fix delay for cursor refresh between insert and normal
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
+set ttyfast
+
 if (has("termguicolors"))
  set termguicolors
 endif
@@ -24,29 +37,43 @@ syntax enable
 let base16colorspace=256
 colorscheme base16-flat
 
-:autocmd VimEnter,Colorscheme * :hi VertSplit cterm=NONE ctermbg=NONE ctermfg=DarkGray
-:autocmd VimEnter,Colorscheme * :hi CursorLine cterm=bold ctermbg=DarkGray
-:autocmd VimEnter,Colorscheme * :hi LineNr cterm=NONE ctermbg=NONE ctermfg=Gray
-:autocmd VimEnter,Colorscheme * :hi Visual ctermbg=Black
-:autocmd VimEnter,Colorscheme * :hi Normal ctermbg=NONE
-:autocmd VimEnter,Colorscheme * :hi SignColumn ctermbg=NONE cterm=NONE guibg=Black
-:autocmd VimEnter,Colorscheme * :hi GitGutterAdd ctermbg=NONE ctermfg=DarkGreen
-:autocmd VimEnter,Colorscheme * :hi GitGutterDelete ctermbg=NONE ctermfg=DarkRed
-:autocmd VimEnter,Colorscheme * :hi GitGutterChange ctermbg=NONE ctermfg=Yellow
-:autocmd VimEnter,Colorscheme * :hi GitGutterChangeDelete ctermbg=NONE ctermfg=DarkYellow
-:autocmd VimEnter,Colorscheme * :hi SyntasticErrorSign ctermbg=NONE ctermfg=DarkRed
-:autocmd VimEnter,Colorscheme * :hi SyntasticWarningSign ctermbg=NONE ctermfg=Yellow
-:autocmd VimEnter,Colorscheme * :hi TabLineFill ctermfg=NONE ctermbg=NONE
-:autocmd VimEnter,Colorscheme * :hi TabLine ctermfg=Blue ctermbg=NONE
-:autocmd VimEnter,Colorscheme * :hi TabLineSel ctermfg=Red ctermbg=NONE
-:autocmd VimEnter,Colorscheme * :hi StatusLine cterm=underline ctermbg=Black ctermfg=Blue
-:autocmd VimEnter,Colorscheme * :hi StatusLineNC cterm=underline ctermbg=Black ctermfg=Red
-:autocmd VimEnter,Colorscheme * :hi Todo ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi VertSplit cterm=NONE ctermbg=NONE ctermfg=DarkGray
+autocmd VimEnter,Colorscheme * :hi CursorLine cterm=bold ctermbg=DarkGray
+autocmd VimEnter,Colorscheme * :hi LineNr cterm=NONE ctermbg=NONE ctermfg=Gray
+autocmd VimEnter,Colorscheme * :hi Visual ctermbg=Black
+autocmd VimEnter,Colorscheme * :hi Normal ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi SignColumn ctermbg=NONE cterm=NONE guibg=None
+autocmd VimEnter,Colorscheme * :hi GitGutterAdd ctermbg=NONE ctermfg=DarkGreen
+autocmd VimEnter,Colorscheme * :hi GitGutterDelete ctermbg=NONE ctermfg=DarkRed
+autocmd VimEnter,Colorscheme * :hi GitGutterChange ctermbg=NONE ctermfg=Yellow
+autocmd VimEnter,Colorscheme * :hi GitGutterChangeDelete ctermbg=NONE ctermfg=DarkYellow
+autocmd VimEnter,Colorscheme * :hi SyntasticErrorSign ctermbg=NONE ctermfg=DarkRed
+autocmd VimEnter,Colorscheme * :hi SyntasticWarningSign ctermbg=NONE ctermfg=Yellow
+autocmd VimEnter,Colorscheme * :hi TabLineFill ctermfg=NONE ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi TabLine ctermfg=Blue ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi TabLineSel ctermfg=Red ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi StatusLine cterm=underline ctermbg=NONE ctermfg=Blue
+autocmd VimEnter,Colorscheme * :hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=Red
+autocmd VimEnter,Colorscheme * :hi Todo ctermbg=NONE
 
  " Always show gitgutter
-:let g:gitgutter_sign_column_always = 1
-:let g:gitgutter_sign_added = '❚'
-:let g:gitgutter_sign_modified = '❚'
-:let g:gitgutter_sign_removed = '❚'
-:let g:gitgutter_sign_modified_removed = '❚'
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = '❚'
+let g:gitgutter_sign_modified = '❚'
+let g:gitgutter_sign_removed = '❚'
+let g:gitgutter_sign_modified_removed = '❚'
+
+set guifont=Monaco:h16
+set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
+
+augroup vimrc
+  autocmd!
+  autocmd GuiEnter * set columns=120 lines=70 number
+augroup END
+
+set wildmenu
+set wildmode=list:longest,full
+
+" Remove annoying vertical color column
+set cc=
 
