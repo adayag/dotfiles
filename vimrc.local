@@ -71,7 +71,7 @@ autocmd VimEnter,Colorscheme * :hi CursorLine cterm=bold ctermbg=DarkGray
 autocmd VimEnter,Colorscheme * :hi LineNr cterm=NONE ctermbg=NONE ctermfg=Gray
 autocmd VimEnter,Colorscheme * :hi Visual ctermbg=Black
 autocmd VimEnter,Colorscheme * :hi Normal ctermbg=NONE
-autocmd VimEnter,Colorscheme * :hi SignColumn ctermbg=NONE cterm=NONE guibg=None
+autocmd VimEnter,Colorscheme * :hi SignColumn ctermbg=NONE cterm=NONE guibg=NONE
 autocmd VimEnter,Colorscheme * :hi GitGutterAdd ctermbg=NONE ctermfg=DarkGreen
 autocmd VimEnter,Colorscheme * :hi GitGutterDelete ctermbg=NONE ctermfg=DarkRed
 autocmd VimEnter,Colorscheme * :hi GitGutterChange ctermbg=NONE ctermfg=Yellow
