@@ -1,5 +1,5 @@
 alias bdeals='cd ~/Projects'
-alias dotfiles="cd ~/dotfiles-local"
+alias dot="cd ~/dotfiles-local"
 
 # docker related
 alias a='./bin/app'
