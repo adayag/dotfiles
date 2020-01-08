@@ -77,3 +77,7 @@ set wildmode=list:longest,full
 " Remove annoying vertical color column
 set cc=
 
+" Maintain undo history between sessions
+" Set up mkdir ~/.vim/undodir on set up to save all undodir in same place
+set undofile
+set undodir=~/.vim/undodir
