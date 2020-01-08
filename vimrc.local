@@ -1,31 +1,42 @@
 """""""""""""
 " GENERAL
 """""""""""""
-
+" don't wrap lines
+set nowrap 
+" It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first.
 set hidden
-
 "Set tab as spaces
 set expandtab sw=2 ts=2
-
 " Turn number lines on
 set number
-
+" Set width of number column
+set numberwidth=3
 " No visual bell
 set novisualbell
-
 " Set syntax on specific files
 autocmd BufNewFile,BufRead *.ejs set syntax=jst
-
+" highlight search terms
+set hlsearch 
+" show search matches as you type
+set incsearch
+" remember more commands and search history
+set history=1000
+" use many muchos levels of undo
+set undolevels=1000
 " Make `jj` and `jk` throw you into normal mode
 inoremap jj <esc>
 inoremap jk <esc>
-
+" Indenting intelligence is enabled based on the syntax rules for the file type.
+filetype plugin indent on
 " Disable cursorline on nerdtree
 autocmd Filetype nerdtree setlocal nocursorline
 
 "****** Reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
+
+" Automatically strip trailing white spaces
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Maintain undo history between sessions
 " Set up mkdir ~/.vim/undodir on set up to save all undodir in same place
