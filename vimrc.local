@@ -1,5 +1,13 @@
+"""""""""""""
+" GENERAL
+"""""""""""""
+"Set tab as spaces
 set expandtab sw=2 ts=2
+
+" Turn number lines on
 set number
+
+" No visual bell
 set novisualbell
 
 " Set syntax on specific files
@@ -16,6 +24,14 @@ autocmd Filetype nerdtree setlocal nocursorline
 vnoremap < <gv
 vnoremap > >gv
 
+" Maintain undo history between sessions
+" Set up mkdir ~/.vim/undodir on set up to save all undodir in same place
+set undofile
+set undodir=~/.vim/undodir
+
+set wildmenu
+set wildmode=list:longest,full
+
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
@@ -27,6 +43,13 @@ set ttimeout
 set ttimeoutlen=1
 set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
 set ttyfast
+
+"""""""""""""""""""""""""""""""
+" COLORSCHEME AND VISUAL TWEAKS
+"""""""""""""""""""""""""""""""
+
+" Remove whitespace indicators
+set nolist
 
 if (has("termguicolors"))
  set termguicolors
@@ -56,7 +79,7 @@ autocmd VimEnter,Colorscheme * :hi StatusLine cterm=underline ctermbg=NONE cterm
 autocmd VimEnter,Colorscheme * :hi StatusLineNC cterm=underline ctermbg=NONE ctermfg=Red
 autocmd VimEnter,Colorscheme * :hi Todo ctermbg=NONE
 
- " Always show gitgutter
+" Always show gitgutter
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_added = '❚'
 let g:gitgutter_sign_modified = '❚'
@@ -71,13 +94,5 @@ augroup vimrc
   autocmd GuiEnter * set columns=120 lines=70 number
 augroup END
 
-set wildmenu
-set wildmode=list:longest,full
-
 " Remove annoying vertical color column
 set cc=
-
-" Maintain undo history between sessions
-" Set up mkdir ~/.vim/undodir on set up to save all undodir in same place
-set undofile
-set undodir=~/.vim/undodir
