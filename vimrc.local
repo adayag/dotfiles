@@ -15,8 +15,6 @@ set numberwidth=3
 set novisualbell
 " Set syntax on specific files
 autocmd BufNewFile,BufRead *.ejs set syntax=jst
-" highlight search terms
-set hlsearch
 " show search matches as you type
 set incsearch
 " remember more commands and search history
@@ -76,6 +74,9 @@ set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 syntax enable
 let base16colorspace=256
 colorscheme base16-flat
+
+" Set Airline Theme
+let g:airline_theme='base16_flat'
 
 autocmd VimEnter,Colorscheme * :hi VertSplit cterm=NONE ctermbg=NONE ctermfg=DarkGray
 autocmd VimEnter,Colorscheme * :hi CursorLine cterm=bold ctermbg=DarkGray
