@@ -1,4 +1,4 @@
-alias bdeals='cd ~/Projects'
+alias nuvo='cd ~/Projects'
 alias dot="cd ~/dotfiles-local"
 
 # docker related
