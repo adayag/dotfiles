@@ -1,5 +1,8 @@
 alias nuvo='cd ~/Projects'
 alias dot="cd ~/dotfiles-local"
+alias nuvoseed="bin/dump-and-restore-db staging 127.0.0.1 postgres"
+alias nuvoseedprod="bin/dump-and-restore-db production 127.0.0.1 postgres"
+alias remigrate="bin/rails db:drop; bin/rails db:create; bin/rails db:migrate"
 
 # docker related
 alias a='./bin/app'
