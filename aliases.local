@@ -1,8 +1,7 @@
-alias nuvo='cd ~/Projects'
+alias tandem='cd ~/Projects'
 alias dot="cd ~/dotfiles-local"
-alias nuvoseed="bin/dump-and-restore-db staging 127.0.0.1 postgres"
-alias nuvoseedprod="bin/dump-and-restore-db production 127.0.0.1 postgres"
 alias remigrate="bin/rails db:drop; bin/rails db:create; bin/rails db:migrate"
+alias keyrepeat="defaults write -g InitialKeyRepeat -int 10 && defaults write -g KeyRepeat -int 1 && defaults write -g ApplePressAndHoldEnabled -bool false"
 
 # docker related
 alias a='./bin/app'
@@ -11,3 +10,6 @@ alias a='./bin/app'
 alias gco='git checkout'
 alias gst='git status'
 alias gap='git add -p'
+
+# alias nuvoseed="bin/dump-and-restore-db staging 127.0.0.1 postgres"
+# alias nuvoseedprod="bin/dump-and-restore-db production 127.0.0.1 postgres"
